@@ -27,7 +27,7 @@ jobs:
       - name: Ensure proper file permissions
         run: |
           ls -hal
-          sudo chown $USER:$USER -R ../unity-webgl-nginx
+          sudo chown $USER:$USER -R ../demo-room
         shell: bash
         
       # Checkout
