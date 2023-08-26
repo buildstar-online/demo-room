@@ -1,19 +1,15 @@
-# Zoom Background Maker
+# Demo Room
 
-```md
-project that I use to make video backgrounds for zoom calls.
+A demo space for playing with real-time global-illumination in Unity3D.
 
 consists of:
 
-- 3d environement w/ colliders (Partially removed as some geomtry was from STRIVR)
+- 3D environement w/ colliders
 - HDRP lighting setup w/ light and reflection probes
-- UI system for controlling the post processing and scene lights
-- fun video texture integrations and mood items like bloom and flicker
+- Hacky UI for controlling the post processing and scene lights
 
-* Relies on enlighten which Unity is dericating and as of the last updat has not published a new solution.
-IMO if you want realtime GI, grab a VXGI solution like NVIDIA's or SonicEthers
-then just run the game at a low res and rely on the new amd upsampeling.
-```
+> Relies on enlighten which Unity is dericating and as of the last update has not published a new solution, its been years so im assuming theyre just waiting for ray-tracing to be the norm.
+
 
 <a href="https://gfycat.com/MemorableGoodnaturedDutchshepherddog-size_restricted.gif"> <img alt="My Zoom background tool" src="https://thumbs.gfycat.com/MemorableGoodnaturedDutchshepherddog-size_restricted.gif" width="50%"></a>
 
