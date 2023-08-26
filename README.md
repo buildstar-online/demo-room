@@ -1,11 +1,24 @@
-# Demo Room
+<h1 align=center>
+Unity3D Real-Time Global-Illumination Demo
+</h1>
 
-A space for playing with real-time global-illumination in Unity3D.
+<p align="center">
+  <img width="64" src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/unity-1024.png">
+  <img width="64" src="https://icons-for-free.com/iconfiles/png/512/C-1324888703033939247.png">
+<p>
 
-- 3D environement w/ colliders
-- HDRP lighting setup w/ light and reflection probes
-- Hacky UI for controlling the post processing and scene lights
+  
+<p align=center>
+Post processing and Light controls <br>
+3D environement w/ colliders <br>
+HDRP Lighting<br>
+Light probes <br>
+Reflection probes <br>
+</p>
+  
+<br>
 
+> [!NOTE]  
 > Relies on enlighten which Unity is dericating and as of the last update has not published a new solution, its been years so im assuming theyre just waiting for ray-tracing to be the norm.
 
 
