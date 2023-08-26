@@ -1,5 +1,5 @@
 <h1 align=center>
-Unity3D Real-Time Global-Illumination Demo
+Real-Time Global-Illumination w/ Unity3D
 </h1>
 
 <p align="center">
@@ -7,7 +7,6 @@ Unity3D Real-Time Global-Illumination Demo
   <img width="64" src="https://icons-for-free.com/iconfiles/png/512/C-1324888703033939247.png">
 <p>
 
-  
 <p align=center>
 Post processing and Light controls <br>
 3D environement w/ colliders <br>
