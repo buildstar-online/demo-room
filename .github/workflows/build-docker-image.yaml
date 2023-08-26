@@ -1,0 +1,78 @@
+name: Build Docker Image
+
+on: 
+  #push: 
+  #pull_request:
+  workflow_dispatch:
+    inputs:
+      artifact_name:
+        description: 'Artifact Name'
+        required: true
+        default: 'WebGL'
+      image_tag:
+        description: 'Image Tag'
+        required: true
+        default: 'latest'
+
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      # Fix permissions
+      - name: Install deps
+        run: |
+          sudo apt-get install -y zip
+        shell: bash
+      
+      # Fix permissions
+      - name: Ensure proper file permissions
+        run: |
+          ls -hal
+          sudo chown $USER:$USER -R ../unity-webgl-nginx
+        shell: bash
+        
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+        
+      # Download artifact from storage
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with: 
+          workflow: build-unity-artifact.yml
+          github_token: ${{secrets.PAT}}
+          name: ${{github.event.inputs.artifact_name}}
+          
+      - name: Move atifact into proper location
+        run: |
+          mv $ARTIFACT_NAME ./docker/artifact
+        shell: bash
+        env:
+          ARTIFACT_NAME: ${{github.event.inputs.artifact_name}}
+        
+      # Build Docker Image
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: deserializeme/unity-webgl-nginx
+          tags: ${{github.event.inputs.image_tag}}
+        
+      # Login to Dockerhub
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        run: |
+         echo ${{ secrets.DOCKERHUB_TOKEN }} |docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+       
+      # Push docker image
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: ./docker
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
