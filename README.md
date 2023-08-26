@@ -20,8 +20,7 @@ Reflection probes <br>
   
 <br>
 
+https://github.com/buildstar-online/demo-room/assets/84841307/cabd1250-15aa-4b76-bb64-60bd26f15f2a
+
 > [!NOTE]  
 > Relies on enlighten which Unity is retireing but as of the last update has not published a new solution, its been years at this point so i'm assuming they're just waiting for ray-tracing to be the norm. 🤷
-
-
-https://github.com/buildstar-online/demo-room/assets/84841307/cabd1250-15aa-4b76-bb64-60bd26f15f2a
